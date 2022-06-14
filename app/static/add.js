@@ -13,25 +13,25 @@ function updateList() {
       updateflag = true;
       if (i == 0) {
         distfield.innerHTML =
-          '<div class="col-3">Distance</div><div class="col-9"><div class="slidecontainer"><input type="range" min="0" max="100" step="25" value="50" class="slider" id="distance_slider" list="interval"><datalist id="interval"><option value="0" label="&frac14 x"></option><option value="25" label="&frac12 x"></option><option value="50" label="x"></option><option value="75" label="2x"></option><option value="100" label="4x"></option></datalist></input><span>m</span></div></div>';
+          '<div class="col-4">Distance (m)</div><div class="col-8"><div class="slidecontainer"><input type="range" min="0" max="100" step="25" value="50" class="slider" id="distance_slider" list="interval"><datalist id="interval"><option value="0" label="&frac14 x"></option><option value="25" label="&frac12 x"></option><option value="50" label="x"></option><option value="75" label="2x"></option><option value="100" label="4x"></option></datalist></input></div></div>';
         lst.innerHTML += `<div class="row variable">
-      <span class="remove" onclick="removePlanet(${i});"> X</span>
-      <div class="row">
-      <div class="col-4">Name</div>
-      <div class="col-8">${planets[i].name}</div>
-      </div>
-      <div class="row">
-      <div class="col-4">Mass</div>
-      <div class="col-8">${planets[i].mass} kg</div>
-      </div>`;
+        <div class="row">
+        <div class="col-4"><b>Name</b></div>
+        <div class="col-8"><b>${planets[i].name}</b></div>
+        </div>
+        <span class="remove" onclick="removePlanet(${i});">×</span>
+        <div class="row">
+        <div class="col-4">Mass</div>
+        <div class="col-8">${planets[i].mass} kg</div>
+        </div>`;
       }
     } else {
       lst.innerHTML += `<div class="row variable">
-        <span class="remove" onclick="removePlanet(${i});"> X</span>
-        <div class="row">
-        <div class="col-4">Name</div>
-        <div class="col-8">${planets[i].name}</div>
-        </div>
+      <div class="row">
+      <div class="col-4"><b>Name</b></div>
+      <div class="col-8"><b>${planets[i].name}</b></div>
+      </div>
+      <span class="remove" onclick="removePlanet(${i});">×</span>
         <div class="row">
         <div class="col-4">Mass</div>
         <div class="col-8">${planets[i].mass} kg</div>
@@ -90,15 +90,15 @@ function addPlanet() {
       );
       if (Distance.length != 0 && Mass < mainmass) {
         if (Distance == 50) {
-          Dist = 40;
+          Dist = 48;
         } else if (Distance == 25) {
-          Dist = 20;
+          Dist = 24;
         } else if (Distance == 0) {
-          Dist = 10;
+          Dist = 12;
         } else if (Distance == 75) {
-          Dist = 80;
+          Dist = 96;
         } else if (Distance == 100) {
-          Dist = 160;
+          Dist = 192;
         }
         planets.push(new Planet(Name, Mass, Radius, mainmass, Dist));
         updateList();

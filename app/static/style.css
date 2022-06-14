@@ -88,11 +88,12 @@
 
 .slider {
   -webkit-appearance: none;
-  width: 180px;
+  width: 170px;
   height: 7px;
   border-radius: 5px;
   background: #d3d3d3;
   outline: none;
+  margin-left: 4px;
 }
 
 .slider::-webkit-slider-thumb {
@@ -110,9 +111,14 @@ datalist {
   display: flex;
   justify-content: space-between;
   color: white;
-  width: 180px;
+  width: 170px;
 }
 
-.variable.remove {
+.remove {
+  width: 5px;
   float: right;
+}
+
+.remove:hover {
+  color: white;
 }
