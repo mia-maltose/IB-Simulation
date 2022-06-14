@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block content %}
+<div class="container-fluid page-color">
+  <div class="row">
+    <div class="col-9 left">
+      <!-- simulation -->
+      <div class="sims">
+        <main></main>
+      </div>
+      <!-- bottom bar -->
+      <div class="row details">details</div>
+    </div>
+    <!-- toolbar -->
+    <div class="col-3 toolbar">
+      <div class="header"><b>New planet</b></div>
+      <div class="row tabs">
+        <box class="inputbox">
+          <div class="row">
+            <div class="col-3">Name</div>
+            <div class="col-9">
+              <input class="namefield" type="text" id="name" maxlength="18" value="planet"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">Mass</div>
+            <div class="col-9">
+              <div class="slidecontainer">
+                <input type="range" min="0" max="100" step="25" value="50" class="slider" id="mass_slider" list="interval">
+                  <datalist id="interval">
+                    <option value="0" label="&frac14 x"></option>
+                    <option value="25" label="&frac12 x"></option>
+                    <option value="50" label="x"></option>
+                    <option value="75" label="2x"></option>
+                    <option value="100" label="4x"></option>
+                  </datalist>
+                </input>
+              <span>kg</span>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="distfield">
+          </div>
+            <!-- <div class="row" id = "gravfield">
+              <div class="col-3">g</div>
+              <div class="col-9">
+                <input class="boxfield" type="number" id="grav" max="100" min="1" value = "10"/>
+                N/kg
+              </div>
+            </div> -->
+          <button class="btn" onclick="addPlanet()">add</button>
+        </box>
+      </div>
+    </br>
+    <div id="list">
+    </div>
+  </div>
+</div>
+{% endblock%}
