@@ -1,3 +1,5 @@
+//how to update github:
+
 let width = 1000;
 let height = 400;
 let G = 200;
