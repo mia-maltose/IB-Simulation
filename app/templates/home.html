@@ -38,17 +38,26 @@
           </div>
           <div class="row" id="distfield">
           </div>
-            <!-- <div class="row" id = "gravfield">
-              <div class="col-3">g</div>
-              <div class="col-9">
-                <input class="boxfield" type="number" id="grav" max="100" min="1" value = "10"/>
-                N/kg
-              </div>
-            </div> -->
+          <div class="row">
+            <div class="col-4">Colour</div>
+            <div class="col-8">
+              <!-- <input class="colorfield" type="color" id="color"/> -->
+              <button class="colorpicker white" id="white"></button>
+              <button class="colorpicker red" id="red" onclick="addPlanet()"></button>
+              <button class="colorpicker orange" id="orange" onclick="addPlanet()"></button>
+              <button class="colorpicker yellow" id="yellow"></button>
+              <button class="colorpicker Lgreen" id="Lgreen"></button>
+              <button class="colorpicker Dgreen" id="Dgreen"></button>
+              <button class="colorpicker Lblue" id="Lblue"></button>
+              <button class="colorpicker Dblue" id="Dblue"></button>
+              <button class="colorpicker violet" id="violet"></button>
+            </div>
+          </div>
           <button class="btn" onclick="addPlanet()">add</button>
         </box>
       </div>
-    </br>
+      <div class="reset" id="reset">
+      </div>
     <div id="list">
     </div>
   </div>

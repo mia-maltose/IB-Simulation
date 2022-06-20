@@ -39,7 +39,7 @@ class Planet {
     this.x = 0;
     this.y = 0;
     this.diameter = radius * 2;
-    this.vorb = Math.sqrt((this.G * this.mainmass) / this.dist); //convert from m to px?
+    this.vorb = Math.sqrt((this.G * this.mainmass) / this.dist);
     this.time = (2 * this.dist * Math.PI) / this.vorb;
     this.angle = (2 * Math.PI) / this.time;
     this.previous = millis();
@@ -53,8 +53,6 @@ class Planet {
     theta = this.angle * (elapsedTime / 1000) - Math.PI / 2;
     this.x = this.dist * Math.cos(theta);
     this.y = this.dist * Math.sin(theta);
-    // this.x = this.dx;
-    // this.y = this.dy;
     if (count % 50 == 0) {
       print(this.x + width / 2, this.y + height / 2);
     }

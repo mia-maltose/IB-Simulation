@@ -1,183 +1,77 @@
-//ADD
-let planets = [];
-let main_planet = "";
+// html part for selecting color of planets
+<div class="row">
+            <div class="col-4">Colour</div>
+            <div class="col-8">
+              <!-- <input class="colorfield" type="color" id="color"/> -->
+              <button class="colorpicker white" id="white"></button>
+              <button class="colorpicker red" id="red" onclick="addPlanet()"></button>
+              <button class="colorpicker orange" id="orange" onclick="addPlanet()"></button>
+              <button class="colorpicker yellow" id="yellow"></button>
+              <button class="colorpicker Lgreen" id="Lgreen"></button>
+              <button class="colorpicker Dgreen" id="Dgreen"></button>
+              <button class="colorpicker Lblue" id="Lblue"></button>
+              <button class="colorpicker Dblue" id="Dblue"></button>
+              <button class="colorpicker violet" id="violet"></button>
+            </div>
+          </div>
 
-function updateList() {
-  lst = document.getElementById("list");
-  lst.innerHTML = "";
-  gravfield = document.getElementById("gravfield");
-  gravfield.innerHTML =
-    '<div class="col-4">g</div> <div class="col-8"><input class="boxfield" type="number" id="grav" max="100" min="1" value = "9.81"/> N/kg</div>';
-  for (let i = 0; i < planets.length; i++) {
-    lst.innerHTML += `<div class="row variable">
-      <span onclick="removePlanet(${i});updateList()"> X</span>
-      <div class="row">
-      <div class="col-4">Name</div>
-      <div class="col-8">${planets[i].name}</div>
-      </div>
-      <div class="row">
-      <div class="col-4">Mass</div>
-      <div class="col-8">${planets[i].mass} kg</div>
-      </div>
-      <div class="row">
-      <div class="col-4">Radius</div>
-      <div class="col-8">${planets[i].radius} m</div>
-      </div>
-    </div>`;
-  }
+// css part for colorpicker
+.colorpicker {
+  height: 15px;
+  width: 5px;
+  border-color: #a9a9a9;
 }
 
-function removePlanet(index) {
-  planets.splice(index, 1);
-  updateList();
+.colorpicker:hover {
+  border-color: white;
 }
 
-function removeMain() {
-  main_planet = "";
+.colorpicker:focus {
+  border-color: white;
 }
 
-function addPlanet() {
-  let Radius = document.getElementById("radius").value;
-  let Mass = document.getElementById("mass").value;
-  let Name = document.getElementById("name").value;
-  console.log(Radius, Mass, Name);
-  if (Radius.length != 0 && Mass.length != 0 && Name.length != 0) {
-    if (main_planet == "") {
-      let Grav = document.getElementById("grav").value;
-      if (Grav.length != 0) {
-        main_planet = new Main(Name, Mass, Radius, Grav);
-        planets.push(main_planet);
-        updateList();
-      }
-      // return;
-    } else {
-      planets.push(new Planet(Name, Mass, Radius));
-      updateList();
-    }
-  }
+.red {
+  background-color: red;
 }
 
-//2nd attempt
-
-function updateList() {
-  lst = document.getElementById("list");
-  lst.innerHTML = "";
-  gravfield = document.getElementById("gravfield");
-  gravfield.innerHTML =
-    '<div class="col-4">g</div> <div class="col-8"><input class="boxfield" type="number" id="grav" max="100" min="1" value = "9.81"/> N/kg</div>';
-  for (let i = 0; i < planets.length; i++) {
-    console.log(planets[i]);
-    if (planets[0] != "") {
-      gravfield.innerHTML = "";
-      lst.innerHTML += `<div class="row variable">
-        <span onclick="removePlanet(${i});updateList()"> X</span>
-        <div class="row">
-        <div class="col-4">Name</div>
-        <div class="col-8">${planets[i].name}</div>
-        </div>
-        <div class="row">
-        <div class="col-4">Mass</div>
-        <div class="col-8">${planets[i].mass} kg</div>
-        </div>
-        <div class="row">
-        <div class="col-4">Radius</div>
-        <div class="col-8">${planets[i].radius} m</div>
-        </div>
-        <div class="row">
-        <div class="col-4">g</div>
-        <div class="col-8">${planets[i].grav} N/kg</div>
-        </div>
-      </div>`;
-    }
-  }
+.orange {
+  background-color: orange;
 }
 
-//third
-
-let planets = [];
-let flag = true;
-
-function updateList() {
-  lst = document.getElementById("list");
-  lst.innerHTML = "";
-  gravfield = document.getElementById("gravfield");
-  gravfield.innerHTML =
-    '<div class="col-4">g</div> <div class="col-8"><input class="boxfield" type="number" id="grav" max="100" min="1" value = "9.81"/> N/kg</div>';
-  for (let i = 0; i < planets.length; i++) {
-    console.log(planets[i]);
-    // if (planets[0] != "") {
-    if ((gravfield.innerHTML = "")) {
-      lst.innerHTML += `<div class="row variable">
-      <span onclick="removePlanet(${i});updateList()"> X</span>
-      <div class="row">
-      <div class="col-4">Name</div>
-      <div class="col-8">${planets[i].name}</div>
-      </div>
-      <div class="row">
-      <div class="col-4">Mass</div>
-      <div class="col-8">${planets[i].mass} kg</div>
-      </div>
-      <div class="row">
-      <div class="col-4">Radius</div>
-      <div class="col-8">${planets[i].radius} m</div>
-      </div>
-    </div>`;
-    } else {
-      gravfield.innerHTML = "";
-      lst.innerHTML += `<div class="row variable">
-        <span onclick="removePlanet(${i});updateList()"> X</span>
-        <div class="row">
-        <div class="col-4">Name</div>
-        <div class="col-8">${planets[i].name}</div>
-        </div>
-        <div class="row">
-        <div class="col-4">Mass</div>
-        <div class="col-8">${planets[i].mass} kg</div>
-        </div>
-        <div class="row">
-        <div class="col-4">Radius</div>
-        <div class="col-8">${planets[i].radius} m</div>
-        </div>
-        <div class="row">
-        <div class="col-4">g</div>
-        <div class="col-8">${planets[i].grav} N/kg</div>
-        </div>
-      </div>`;
-    }
-    // }
-  }
+.yellow {
+  background-color: yellow;
 }
 
-function removePlanet(index) {
-  if (index == 0) {
-    planets[0] = "";
-    updateList();
-  } else {
-    planets.splice(index, 1);
-    updateList();
-  }
+.Lgreen {
+  background-color: rgb(135, 255, 91);
 }
 
-function removeMain() {
-  main_planet = "";
+.Dgreen {
+  background-color: rgb(0, 189, 0);
 }
 
-function addPlanet() {
-  let Radius = document.getElementById("radius").value;
-  let Mass = document.getElementById("mass").value;
-  let Name = document.getElementById("name").value;
-  if (Radius.length != 0 && Mass.length != 0 && Name.length != 0) {
-    if (planets.length == 0) {
-      let Grav = document.getElementById("grav").value;
-      if (Grav.length != 0) {
-        planets.unshift(new Main(Name, Mass, Radius, Grav));
-        updateList();
-      }
-    } else {
-      planets.push(new Planet(Name, Mass, Radius));
-      updateList();
-    }
-  }
+.Lblue {
+  background-color: rgb(98, 211, 255);
+}
+
+.Dblue {
+  background-color: rgb(19, 55, 255);
+}
+
+.white {
+  background-color: white;
+}
+
+.violet {
+  background-color: violet;
+}
+
+
+// trying to add adjust mass slider
+function adjust(mainmass) {
+  var adjust_slider = document.getElementById("adjust_mass");
+  var adjusted_mass = adjust_slider.value;
+  mainmass = adjusted_mass;
 }
 
 // orginal working orbit in sim with g input
