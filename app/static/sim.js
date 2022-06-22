@@ -12,23 +12,25 @@ let planet;
 let theta;
 
 class Main {
-  constructor(name, mass, radius) {
+  constructor(name, mass, radius, c) {
     this.name = name;
     this.mass = mass;
     this.radius = radius;
     this.x = width / 2;
     this.y = height / 2;
+    this.c = c;
   }
 
   update() {}
 
   draw() {
+    fill(this.c);
     ellipse(this.x, this.y, this.radius * 2);
   }
 }
 
 class Planet {
-  constructor(name, mass, radius, mainmass, distance) {
+  constructor(name, mass, radius, mainmass, distance, c) {
     this.G = G;
     this.name = name;
     this.mass = mass;
@@ -43,6 +45,7 @@ class Planet {
     this.time = (2 * this.dist * Math.PI) / this.vorb;
     this.angle = (2 * Math.PI) / this.time;
     this.previous = millis();
+    this.c = c;
   }
 
   update() {
@@ -60,6 +63,7 @@ class Planet {
   }
 
   draw() {
+    fill(this.c);
     ellipse(this.x + width / 2, this.y + height / 2, this.radius * 2); //add width/2 and height/2
   }
 }

@@ -1,6 +1,8 @@
 let planets = [];
 let addflag = false; // main is not defined
 let updateflag = false; //main is not in toolbar
+let colorflag = false;
+var color = "rgb(255,255,255)";
 
 function updateList() {
   updateflag = false;
@@ -8,12 +10,14 @@ function updateList() {
   lst.innerHTML = "";
   distfield = document.getElementById("distfield");
   distfield.innerHTML = "";
+  resetid = document.getElementById("resetid");
+  resetid = "";
   for (let i = 0; i < planets.length; i++) {
     if (updateflag == false && addflag == true) {
       updateflag = true;
       if (i == 0) {
-        reset.innterHTML =
-          '<div class="resetbtn" onclick="removeMain();">RESET</div>';
+        resetid.innerHTML =
+          '<button class="resetbtn" onclick="removeMain()">reset</button>';
         distfield.innerHTML =
           '<div class="col-4">Distance (m)</div><div class="col-8"><div class="slidecontainer"><input type="range" min="0" max="100" step="25" value="50" class="slider" id="distance_slider" list="interval"><datalist id="interval"><option value="0" label="&frac14 x"></option><option value="25" label="&frac12 x"></option><option value="50" label="x"></option><option value="75" label="2x"></option><option value="100" label="4x"></option></datalist></input></div></div>';
         lst.innerHTML += `<div class="row variable">
@@ -65,7 +69,35 @@ function removePlanet(index) {
   }
 }
 
+function colorbtn(colorid) {
+  colorflag = true;
+  if (colorid == "red") {
+    color = "rgb(255,0,0)";
+  } else if (colorid == "orange") {
+    color = "rgb(255,165,0)";
+  } else if (colorid == "yellow") {
+    color = "rgb(255,255,0)";
+  } else if (colorid == "Lgreen") {
+    color = "rgb(135, 255, 91)";
+  } else if (colorid == "Dgreen") {
+    color = "rgb(0, 189, 0)";
+  } else if (colorid == "Lblue") {
+    color = "rgb(98, 211, 255)";
+  } else if (colorid == "Dblue") {
+    color = "rgb(15, 99, 255)";
+  } else if (colorid == "violet") {
+    color = "rgb(238, 130, 238)";
+  } else {
+    color = "rgb(255,255,255)";
+  }
+}
+
 function addPlanet() {
+  if (colorflag == false) {
+    color = "rgb(255,255,255)";
+  } else {
+    colorflag = false;
+  }
   let Name = document.getElementById("name").value;
   let mass = parseFloat(document.getElementById("mass_slider").value);
   if (mass.length != 0 && Name.length != 0) {
@@ -87,7 +119,7 @@ function addPlanet() {
     }
     if (addflag == false) {
       mainmass = Mass;
-      planets.unshift(new Main(Name, Mass, Radius));
+      planets.unshift(new Main(Name, Mass, Radius, color));
       addflag = true;
       updateList();
     } else {
@@ -106,11 +138,9 @@ function addPlanet() {
         } else if (Distance == 100) {
           Dist = 192;
         }
-        planets.push(new Planet(Name, Mass, Radius, mainmass, Dist));
+        planets.push(new Planet(Name, Mass, Radius, mainmass, Dist, color));
         updateList();
       }
     }
   }
 }
-
-addColour;

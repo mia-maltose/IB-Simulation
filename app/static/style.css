@@ -35,11 +35,6 @@
   padding-top: 5px;
 }
 
-.boxfield {
-  width: 58px;
-  height: 20px;
-}
-
 .namefield {
   width: 120px;
   height: 20px;
@@ -129,8 +124,10 @@ datalist {
 }
 
 .resetbtn {
+  color: white;
   font-size: small;
   width: 50px;
+  background-color: black;
 }
 
 .resetbtn:hover {
@@ -176,7 +173,7 @@ datalist {
 }
 
 .Dblue {
-  background-color: rgb(19, 55, 255);
+  background-color: rgb(15, 99, 255);
 }
 
 .white {
@@ -184,5 +181,5 @@ datalist {
 }
 
 .violet {
-  background-color: violet;
+  background-color: rgb(238, 130, 238);
 }

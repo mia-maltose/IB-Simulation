@@ -42,21 +42,22 @@
             <div class="col-4">Colour</div>
             <div class="col-8">
               <!-- <input class="colorfield" type="color" id="color"/> -->
-              <button class="colorpicker white" id="white"></button>
-              <button class="colorpicker red" id="red" onclick="addPlanet()"></button>
-              <button class="colorpicker orange" id="orange" onclick="addPlanet()"></button>
-              <button class="colorpicker yellow" id="yellow"></button>
-              <button class="colorpicker Lgreen" id="Lgreen"></button>
-              <button class="colorpicker Dgreen" id="Dgreen"></button>
-              <button class="colorpicker Lblue" id="Lblue"></button>
-              <button class="colorpicker Dblue" id="Dblue"></button>
-              <button class="colorpicker violet" id="violet"></button>
+              <button class="colorpicker white" id="white" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker red" id="red" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker orange" id="orange" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker yellow" id="yellow" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker Lgreen" id="Lgreen" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker Dgreen" id="Dgreen" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker Lblue" id="Lblue" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker Dblue" id="Dblue" onclick="colorbtn(this.id)"></button>
+              <button class="colorpicker violet" id="violet" onclick="colorbtn(this.id)"></button>
             </div>
           </div>
           <button class="btn" onclick="addPlanet()">add</button>
         </box>
       </div>
-      <div class="reset" id="reset">
+      <br>
+      <div id="resetid" class="row">
       </div>
     <div id="list">
     </div>
