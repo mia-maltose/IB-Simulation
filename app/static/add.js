@@ -10,14 +10,13 @@ function updateList() {
   lst.innerHTML = "";
   distfield = document.getElementById("distfield");
   distfield.innerHTML = "";
-  resetid = document.getElementById("resetid");
-  resetid = "";
+  header = document.getElementById("header");
+  header.innerHTML = "<b>New centre planet</b>";
   for (let i = 0; i < planets.length; i++) {
     if (updateflag == false && addflag == true) {
       updateflag = true;
       if (i == 0) {
-        resetid.innerHTML =
-          '<button class="resetbtn" onclick="removeMain()">reset</button>';
+        header.innerHTML = "<b>New orbitting planet</b>";
         distfield.innerHTML =
           '<div class="col-4">Distance (m)</div><div class="col-8"><div class="slidecontainer"><input type="range" min="0" max="100" step="25" value="50" class="slider" id="distance_slider" list="interval"><datalist id="interval"><option value="0" label="&frac14 x"></option><option value="25" label="&frac12 x"></option><option value="50" label="x"></option><option value="75" label="2x"></option><option value="100" label="4x"></option></datalist></input></div></div>';
         lst.innerHTML += `<div class="row variable">
@@ -36,7 +35,7 @@ function updateList() {
       <div class="col-4"><b>Name</b></div>
       <div class="col-8"><b>${planets[i].name}</b></div>
       </div>
-      <span class="remove" onclick="removePlanet(${i});">×</span>
+      <span class="remove" onclick="removePlanet(${i});"><b>×</b></span>
         <div class="row">
         <div class="col-4">Mass</div>
         <div class="col-8">${planets[i].mass} kg</div>
@@ -50,16 +49,9 @@ function updateList() {
   }
 }
 
-function removeMain() {
-  planets.splice(0, planets.length);
-  updateflag = false;
-  addflag = false;
-  updateList();
-}
-
 function removePlanet(index) {
   if (index == 0) {
-    planets.splice(index, 1);
+    planets.splice(index, planets.length);
     updateflag = false;
     addflag = false;
     updateList();

@@ -11,7 +11,7 @@
     </div>
     <!-- toolbar -->
     <div class="col-3 toolbar">
-      <div class="header"><b>New planet</b></div>
+      <div class="header" id="header"><b>New centre planet</b></div>
       <div class="row tabs">
         <box class="inputbox">
           <div class="row">
@@ -56,10 +56,9 @@
           <button class="btn" onclick="addPlanet()">add</button>
         </box>
       </div>
-      <br>
-      <div id="resetid" class="row">
-      </div>
-    <div id="list">
+    <div class="btnwrap"><span class="resetbtn" onclick="removePlanet(0);">RESET</span></div>
+    <br>
+    <div class = "list" id="list">
     </div>
   </div>
 </div>

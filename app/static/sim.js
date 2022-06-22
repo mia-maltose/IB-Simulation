@@ -1,10 +1,5 @@
-// how to update github:
-// git add *
-// git commit -m 'some message'
-// git push origin main
-
 let width = 1000;
-let height = 400;
+let height = 450;
 let G = 200;
 let count = 0;
 let main;
