@@ -36,15 +36,8 @@
 }
 
 .namefield {
-  width: 120px;
+  width: 100%;
   height: 20px;
-}
-
-.details {
-  color: white;
-  border-top: rgb(102, 102, 102) 2px solid;
-  height: 120px;
-  padding: 20px;
 }
 
 .toolbar {
@@ -80,14 +73,13 @@
 
 .sim {
   display: block;
-  width: 100%;
-  height: 400px;
   background-color: #272056;
+  width: 100%;
 }
 
 .slider {
   -webkit-appearance: none;
-  width: 170px;
+  width: 100%;
   height: 7px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -110,7 +102,7 @@ datalist {
   display: flex;
   justify-content: space-between;
   color: white;
-  width: 170px;
+  width: 100%;
 }
 
 .remove {

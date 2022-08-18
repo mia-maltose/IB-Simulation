@@ -1,5 +1,5 @@
-let width = 1000;
-let height = 450;
+const width = 918; //try to make width changeable with changing window size
+const height = 570; // success: height is changeable with changing window size
 let G = 200;
 let count = 0;
 let main;
@@ -7,7 +7,8 @@ let planet;
 let theta;
 
 class Main {
-  constructor(name, mass, radius, c) {
+  constructor(name, mass, radius, c, dis_mass) {
+    this.displaying_mass = dis_mass;
     this.name = name;
     this.mass = mass;
     this.radius = radius;
@@ -25,7 +26,9 @@ class Main {
 }
 
 class Planet {
-  constructor(name, mass, radius, mainmass, distance, c) {
+  constructor(name, mass, radius, mainmass, distance, c, dis_mass, dis_dist) {
+    this.displaying_mass = dis_mass;
+    this.displaying_dist = dis_dist;
     this.G = G;
     this.name = name;
     this.mass = mass;
@@ -52,7 +55,7 @@ class Planet {
     this.x = this.dist * Math.cos(theta);
     this.y = this.dist * Math.sin(theta);
     if (count % 50 == 0) {
-      print(this.x + width / 2, this.y + height / 2);
+      // print(this.x + width / 2, this.y + height / 2);
     }
     count += 1;
   }

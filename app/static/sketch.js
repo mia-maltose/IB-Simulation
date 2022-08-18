@@ -1,5 +1,6 @@
 function setup() {
   createCanvas(width, height);
+  // bg = loadImage("bg.jpg");
 }
 
 function draw() {

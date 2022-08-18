@@ -1,23 +1,23 @@
 {% extends "base.html" %} {% block content %}
+
+<title>IB Physics Orbit Simulation</title>
+
 <div class="container-fluid page-color">
   <div class="row">
     <div class="col-9 left">
       <!-- simulation -->
-      <div class="sims">
+      <!-- try to make width changeable with changing window size -->
         <main></main>
-      </div>
-      <!-- bottom bar -->
-      <div class="row details">details</div>
     </div>
     <!-- toolbar -->
-    <div class="col-3 toolbar">
-      <div class="header" id="header"><b>New centre planet</b></div>
+    <div class="col-3 toolbar" id="toolbar">
+      <div class="header" id="header"><b>New Centre Planet</b></div>
       <div class="row tabs">
         <box class="inputbox">
           <div class="row">
             <div class="col-4">Name</div>
             <div class="col-8">
-              <input class="namefield" type="text" id="name" maxlength="18" value="planet"/>
+              <input class="namefield" type="text" id="name" maxlength="18" value=""/>
             </div>
           </div>
           <div class="row">
