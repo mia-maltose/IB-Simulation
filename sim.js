@@ -1,15 +1,10 @@
-const width = 950; //try to make width changeable with changing window size
-const height = 570; // success: height is changeable with changing window size
+const width = 950;
+const height = 570;
 let G = 200;
-let count = 0;
-let main;
-let planet;
-let theta;
 
 class Main {
-  constructor(name, mass, radius, c, dis_mass) {
+  constructor(mass, radius, c, dis_mass) {
     this.displaying_mass = dis_mass;
-    this.name = name;
     this.mass = mass;
     this.radius = radius;
     this.x = width / 2;
@@ -25,7 +20,7 @@ class Main {
   }
 }
 
-class Planet {
+class Orbitting {
   constructor(name, mass, radius, mainmass, distance, c, dis_mass, dis_dist) {
     this.displaying_mass = dis_mass;
     this.displaying_dist = dis_dist;
@@ -51,17 +46,19 @@ class Planet {
     if (elapsedTime / 1000 > this.time) {
       elapsedTime = elapsedTime - this.time;
     }
-    theta = this.angle * (elapsedTime / 1000) - Math.PI / 2;
+    let theta = this.angle * (elapsedTime / 1000) - Math.PI / 2;
     this.x = this.dist * Math.cos(theta);
     this.y = this.dist * Math.sin(theta);
-    if (count % 50 == 0) {
-      // print(this.x + width / 2, this.y + height / 2);
-    }
-    count += 1;
   }
 
   draw() {
     fill(this.c);
     ellipse(this.x + width / 2, this.y + height / 2, this.radius * 2); //add width/2 and height/2
+    fill(0);
+    text(
+      this.name,
+      this.x + width / 2 - textWidth(this.name) / 2,
+      this.y + height / 2 + 3
+    );
   }
 }

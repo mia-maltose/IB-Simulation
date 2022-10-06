@@ -12,7 +12,6 @@
   <script src= "sim.js"></script>
   <script src= "sketch.js"></script>
   <script src= "add.js"></script>
-  <script src= "details.js"></script>
 </head>
 <body>
   <script
@@ -25,28 +24,24 @@
 <div class="container-fluid page-color p-0 m-0">
   <div class="row gx-0 m-0">
     <div class="col-9 left">
+      <box class="Title">Newtonian Gravity</box>
+      <box class="Subtitle">IB Physics HL</box>
       <!-- simulation -->
         <main></main>
     </div>
     <!-- toolbar -->
     <div class="col-3 toolbar mx-0" id="toolbar">
-      <div class="header" id="header"><b>New Centre Planet</b></div>
+      <div class="header" id="header"><b>New Centre Object</b></div>
       <div class="row tabs m-0">
         <box class="inputbox">
-          <div class="row">
-            <div class="col-4">Name</div>
-            <div class="col-8">
-              <input class="namefield" type="text" id="name" maxlength="18" value=""/>
-            </div>
-          </div>
           <div class="row">
             <div class="col-4">Mass (kg)</div>
             <div class="col-8">
               <div class="slidecontainer">
                 <input type="range" min="0" max="100" step="25" value="50" class="slider" id="mass_slider" list="interval">
                   <datalist id="interval">
-                    <option value="0">&frac14 x</option>
-                    <option value="25">&frac12 x</option>
+                    <option value="0">&frac14x</option>
+                    <option value="25">&frac12x</option>
                     <option value="50">x</option>
                     <option value="75">2x</option>
                     <option value="100">4x</option>
@@ -60,8 +55,6 @@
           <div class="row">
             <div class="col-4">Colour</div>
             <div class="col-8">
-              <!-- <input class="colorfield" type="color" id="color"/> -->
-              <button class="colorpicker white" id="white" onclick="colorbtn(this.id)"></button>
               <button class="colorpicker red" id="red" onclick="colorbtn(this.id)"></button>
               <button class="colorpicker orange" id="orange" onclick="colorbtn(this.id)"></button>
               <button class="colorpicker yellow" id="yellow" onclick="colorbtn(this.id)"></button>
@@ -72,7 +65,7 @@
               <button class="colorpicker violet" id="violet" onclick="colorbtn(this.id)"></button>
             </div>
           </div>
-          <button class="btn" onclick="addPlanet()">add</button>
+          <button class="btn" onclick="addPlanet()">Add</button>
         </box>
         <div class="btnwrap"><button class="resetbtn" onclick="removePlanet(0);">RESET</button></div>
         <br>
