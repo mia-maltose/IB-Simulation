@@ -1,8 +1,8 @@
 let objects = [];
 let addflag = false; // Main is not defined
 let updateflag = false; //Main is not in toolbar
-let colorflag = false;
 let number = 0;
+let color = "rgb(255,255,255)";
 
 function updateList() {
   updateflag = false;
@@ -27,7 +27,7 @@ function updateList() {
       }
     } else {
       lst.innerHTML += `<div class="row variable gx-0">
-      <div class="row"><b>${objects[i].name}</b></div>
+      <div class="row"><b>${objects[i].label}</b></div>
       <button class="remove" onclick="removePlanet(${i});"><b>×</b></button>
         <div class="row">
         <div class="col-4">Mass</div>
@@ -56,7 +56,6 @@ function removePlanet(index) {
 }
 
 function colorbtn(colorid) {
-  colorflag = true;
   if (colorid == "red") {
     color = "rgb(255,0,0)";
   } else if (colorid == "orange") {
@@ -78,12 +77,6 @@ function colorbtn(colorid) {
 
 function addPlanet() {
   let mass = parseFloat(document.getElementById("mass_slider").value); //mass is the displaying mass (e.g. 'x')
-  if (colorflag == false) {
-    color = "rgb(255,255,255)";
-  } else {
-    colorflag = false;
-  }
-
   if (mass == 50) {
     mass = "x";
     Mass = 100;
@@ -132,7 +125,7 @@ function addPlanet() {
       }
       number += 1;
       objects.push(
-        new Orbitting(
+        new Orbiting(
           number,
           Mass,
           Radius,
@@ -147,9 +140,10 @@ function addPlanet() {
       document.getElementById("distance_slider").value = 50;
     } else {
       alert(
-        "Mass of orbitting object needs to be less than the mass of the center object."
+        "Mass of orbiting object needs to be less than the mass of the center object."
       );
     }
   }
   document.getElementById("mass_slider").value = 50;
+  color = "rgb(255,255,255)";
 }
