@@ -58,7 +58,7 @@
   height: 20px;
 }
 
-.toolbar {
+.right {
   background-color: #252a2b;
 }
 
@@ -68,11 +68,10 @@
   padding-left: 10px;
 }
 
-.tabs {
+.fields {
   padding-top: 5px;
   margin-bottom: 5px;
   width: 100%;
-  /* padding-left: 10px; */
 }
 
 .variable {
@@ -165,11 +164,12 @@ datalist {
 
 .resetbtn {
   font-size: small;
-  width: 50px;
+  width: 70px;
   color: white;
   background-color: grey;
   float: left;
   margin: 5px;
+  border: 0;
 }
 
 .resetbtn:hover {

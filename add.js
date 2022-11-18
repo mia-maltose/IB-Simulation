@@ -1,6 +1,6 @@
 let objects = [];
 let addflag = false; // Main is not defined
-let updateflag = false; //Main is not in toolbar
+let updateflag = false; //Main is not in list
 let number = 0;
 let color = "rgb(255,255,255)";
 
@@ -28,7 +28,7 @@ function updateList() {
     } else {
       lst.innerHTML += `<div class="row variable gx-0">
       <div class="row"><b>${objects[i].label}</b></div>
-      <button class="remove" onclick="removePlanet(${i});"><b>×</b></button>
+      <button class="remove" onclick="removeObject(${i});"><b>×</b></button>
         <div class="row">
         <div class="col-4">Mass</div>
         <div class="col-8">${objects[i].displaying_mass} kg</div>
@@ -42,7 +42,7 @@ function updateList() {
   }
 }
 
-function removePlanet(index) {
+function removeObject(index) {
   if (index == 0) {
     objects.splice(index, objects.length);
     updateflag = false;
@@ -75,7 +75,7 @@ function colorbtn(colorid) {
   }
 }
 
-function addPlanet() {
+function addObject() {
   let mass = parseFloat(document.getElementById("mass_slider").value); //mass is the displaying mass (e.g. 'x')
   if (mass == 50) {
     mass = "x";
@@ -101,6 +101,7 @@ function addPlanet() {
 
   if (addflag == false) {
     mainmass = Mass;
+    mainradius = Radius; // new variable, rmb to add to criterion B
     objects.unshift(new Main(Mass, Radius, color, mass));
     addflag = true;
     updateList();
@@ -123,22 +124,30 @@ function addPlanet() {
         Distance = "4y";
         Dist = 256;
       }
-      number += 1;
-      objects.push(
-        new Orbiting(
-          number,
-          Mass,
-          Radius,
-          mainmass,
-          Dist,
-          color,
-          mass,
-          Distance
-        )
-      );
-      updateList();
-      document.getElementById("distance_slider").value = 50;
-    } else {
+      radial_dist = Dist - mainradius - Radius; // new variable, rmb to add to criterion B
+      // fixed bug, rmb to add to criterion B
+      if (radial_dist >= 0) {
+        number += 1;
+        objects.push(
+          new Orbiting(
+            number,
+            Mass,
+            Radius,
+            mainmass,
+            Dist,
+            color,
+            mass,
+            Distance
+          )
+        );
+        updateList();
+        document.getElementById("distance_slider").value = 50;
+      } else {
+        alert(
+          "Radial distance must be larger that the radius of the center object.\nPlease select a lower mass and/or distance."
+        );
+      }
+    } else if (Mass >= mainmass) {
       alert(
         "Mass of orbiting object needs to be less than the mass of the center object."
       );

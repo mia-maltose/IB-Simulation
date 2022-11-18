@@ -29,9 +29,9 @@
       <!-- simulation -->
         <main></main>
     </div>
-    <div class="col-3 toolbar mx-0" id="toolbar">
-      <div class="header" id="header"><b>New Centre Object</b></div>
-      <div class="row tabs m-0">
+    <div class="col-3 right">
+      <div class="header" id="header"><b>New Center Object</b></div>
+      <div class="row fields m-0">
         <box class="inputbox">
           <div class="row">
             <div class="col-4">Mass (kg)</div>
@@ -49,8 +49,7 @@
               </div>
             </div>
           </div>
-          <div class="row" id="distfield">
-          </div>
+          <div class="row" id="distfield"></div>
           <div class="row">
             <div class="col-4">Colour</div>
             <div class="col-8">
@@ -64,9 +63,9 @@
               <button class="colorpicker violet" id="violet" onclick="colorbtn(this.id)"></button>
             </div>
           </div>
-          <button class="btn" onclick="addPlanet()">Add</button>
+          <button class="btn" onclick="addObject()">Add</button>
         </box>
-        <div class="btnwrap"><button class="resetbtn" onclick="removePlanet(0);">RESET</button></div>
+        <div class="btnwrap"><button class="resetbtn" onclick="removeObject(0);">RESET ALL</button></div>
         <br>
         <div class="scrollbar">
           <div id="list">
