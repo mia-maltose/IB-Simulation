@@ -144,7 +144,7 @@ function addObject() {
         document.getElementById("distance_slider").value = 50;
       } else {
         alert(
-          "Radial distance must be larger that the radius of the center object.\nPlease select a lower mass and/or distance."
+          "Radial distance must be larger than the radius of the center object.\nPlease select a lower mass and/or distance."
         );
       }
     } else if (Mass >= mainmass) {
